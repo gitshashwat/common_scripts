@@ -1,0 +1,70 @@
+top = 0
+bottom = m - 1
+left = 0
+right = n - 1
+bool = "true"
+
+mat = [[-1 for x in range(n)] for y in range(m)]
+
+index = 0
+
+while True:
+
+    if left > right:
+        break
+
+    for i in range(left, right + 1):
+        if bool == "false":
+            mat[top][i] = - 1
+        else:
+            mat[top][i] = head.val
+        if head.next:
+            head = head.next
+        else:
+            bool = "false"
+    top = top + 1
+
+    if top > bottom:
+        break
+
+    for i in range(top, bottom + 1):
+        if bool == "false":
+            mat[i][right] = - 1
+        else:
+            mat[i][right] = head.val
+        if head.next:
+            head = head.next
+        else:
+            bool = "false"
+    right = right - 1
+
+    if left > right:
+        break
+
+    for i in range(right, left - 1, -1):
+        if bool == "false":
+            mat[bottom][i] = - 1
+        else:
+            mat[bottom][i] = head.val
+        if head.next:
+            head = head.next
+        else:
+            bool = "false"
+    bottom = bottom - 1
+
+    if top > bottom:
+        break
+    
+    for i in range(bottom, top - 1, -1):
+        if bool == "false":
+            mat[i][left] = - 1
+        else:
+            mat[i][left] = head.val
+        if head.next:
+            head = head.next
+        else:
+            bool = "false"
+
+    left = left + 1
+
+return mat
